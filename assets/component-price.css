@@ -21,6 +21,9 @@
 .price .price-item {
   display: inline-block;
   margin: 0 1rem 0 0;
+  /* Color change */
+  color: #f70d1a;
+  font-weight:bold;
 }
 
 .price__regular .price-item--regular {
