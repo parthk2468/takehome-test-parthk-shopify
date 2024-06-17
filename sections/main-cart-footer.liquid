@@ -77,6 +77,9 @@
               </div>
             {%- else -%}
               <div class="cart__ctas" {{ block.shopify_attributes }}>
+                <a href="#" style="width:150px;padding-top: 19px;" onclick="window.clearCart(event);">Clear Cart</a>
+                &nbsp;
+                &nbsp;
                 <button
                   type="submit"
                   id="checkout"
@@ -104,6 +107,33 @@
     </div>
   </div>
 </div>
+
+<script type="text/javascript">
+  window.clearCart = async (event) => {
+    console.log(event);
+    event.preventDefault();
+    try {
+      const response = await fetch('/cart/clear.js', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        console.log('Cart cleared successfully:', data);
+        document.querySelector(`cart-items`).classList.add('is-empty');
+        document.querySelector(`#main-cart-footer`).classList.add('is-empty');
+      } else {
+        console.error('Error clearing the cart:', response.statusText);
+      }
+    } catch (error) {
+      console.error('Network error:', error);
+    }
+  }
+</script>
 
 {% schema %}
 {
