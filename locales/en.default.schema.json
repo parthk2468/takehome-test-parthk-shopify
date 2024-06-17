@@ -2036,6 +2036,9 @@
         "description": {
           "name": "Description"
         },
+        "extrainfo": {
+          "name": "Product Extra Info"
+        },
         "sku": {
           "name": "SKU",
           "settings": {
