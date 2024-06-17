@@ -97,3 +97,7 @@
 .collection__view-all a:not(.link) {
   margin-top: 1rem;
 }
+
+.collection .product-grid li.grid__item {
+  border: 2px solid #f70d1a;
+}
